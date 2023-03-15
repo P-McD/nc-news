@@ -5,7 +5,7 @@ import { TopicContext } from "../contexts/TopicContext";
 import ArticleCard from "./ArticleCard";
 export default function Articles() {
   const { topic, setTopic } = useContext(TopicContext);
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(true);
   const [selectedTopic, setSelectedTopic] = useState("All");
 
   const handleTopic = (event) => {
@@ -13,7 +13,6 @@ export default function Articles() {
   };
 
   useEffect(() => {
-    setLoading(true);
     topicSelectHandler(selectedTopic)
       .then((data) => {
         setTopic(data);
@@ -47,7 +46,7 @@ export default function Articles() {
         <ul className="listedArticles">
           {topic.map((article) => {
             return (
-              <li key={article.article_id}>
+              <li key={article.article_id} className="article-card">
                 <ArticleCard article={article} />
               </li>
             );
