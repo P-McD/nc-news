@@ -1,11 +1,9 @@
 import React from "react";
 import { useContext, useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
 import { topicSelectHandler } from "../api";
 import { TopicContext } from "../contexts/TopicContext";
 import ArticleCard from "./ArticleCard";
 export default function Articles() {
-  const navigate = useNavigate();
   const { topic, setTopic } = useContext(TopicContext);
   const [loading, setLoading] = useState(false);
   const [selectedTopic, setSelectedTopic] = useState("All");
@@ -20,10 +18,9 @@ export default function Articles() {
       .then((data) => {
         setTopic(data);
       })
-      .then(() => navigate(`/articles`))
       .catch((err) => console.log(err));
     setLoading(false);
-  }, [selectedTopic]);
+  }, [selectedTopic, setTopic]);
 
   if (loading === true) {
     return <p>Loading</p>;
