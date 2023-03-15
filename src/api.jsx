@@ -9,3 +9,9 @@ export const topicSelectHandler = (selectedTopic) => {
     return res.data;
   });
 };
+
+export const singleArticleHandler = (articleId) => {
+  return api.get(`/articles/${articleId}`).then((res) => {
+    return res.data;
+  });
+};

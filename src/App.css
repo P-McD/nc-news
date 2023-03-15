@@ -7,12 +7,29 @@
   border-style: solid;
   padding: 10px;
 }
-
+/* .listed-articles {
+  display: grid;
+} */
 .article-card {
   border-style: solid;
   padding: 5vh;
-}
 
+}
+.single-img {
+  max-width: 60vw;
+  margin-left: 2px;
+  margin-right: 2px
+}
 .article-card-img{
   max-width: 30vh;
+}
+.article-info {
+  display:flex;
+  justify-content: space-around;
+
+}
+
+.main {
+  margin-left: 15%;
+  margin-right: 15%;
 }
