@@ -15,3 +15,9 @@ export const singleArticleHandler = (articleId) => {
     return res.data;
   });
 };
+
+export const commentsHandler = (articleId) => {
+  return api.get(`/articles/${articleId}/comments`).then((res) => {
+    return res.data
+  })
+}
