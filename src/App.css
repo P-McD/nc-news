@@ -33,3 +33,15 @@
   margin-left: 15%;
   margin-right: 15%;
 }
+
+.comments > ul {
+  display: grid;
+  align-items: center;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  grid-gap: 10px;
+  list-style-type: none;
+}
+
+.comment-card {
+  text-align: left;
+}
