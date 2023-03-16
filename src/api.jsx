@@ -21,3 +21,12 @@ export const commentsHandler = (articleId) => {
     return res.data
   })
 }
+
+export const upVoteHandler = ({articleId, voteValue}) => {
+  return api.patch(`/articles/${articleId}`, {inc_votes : voteValue})
+  .then(({data}) => {
+    console.log(data.votes , "<<votes increased api")
+    return data.votes
+    
+  })
+}
