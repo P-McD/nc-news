@@ -21,3 +21,9 @@ export const commentsHandler = (articleId) => {
     return res.data
   })
 }
+
+export const signInHandler = (username) => {
+  return api.get(`/users`).then((res) => {
+    return res.data
+  })
+}

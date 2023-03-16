@@ -11,7 +11,7 @@ function Comments() {
     commentsHandler(article_id).then((data) => {
       setComments(data);
     });
-  });
+  }, []);
   if (comments.length === 0) {
     return (
       <div className="no-comments">
