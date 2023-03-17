@@ -1,7 +1,6 @@
 import "./App.css";
 import React from "react";
 import { Route, Routes } from "react-router-dom";
-import { useState } from "react";
 import Header from "./components/Header";
 import Articles from "./components/Articles";
 import HomePage from "./components/HomePage";

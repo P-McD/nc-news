@@ -13,7 +13,7 @@ function Comments() {
       setComments(data);
       setLoading(false)
     });
-  }, []);
+  }, [article_id]);
   if (loading) {
     return <p>Loading comments...</p>
   }
