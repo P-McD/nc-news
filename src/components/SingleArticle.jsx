@@ -14,7 +14,7 @@ export default function SingleArticle() {
       setSingleArticle(data)
       setLoading(false);
     });
-  }, [article_id, singleArticle]);
+  }, [article_id]);
   if (loading) {
     return <h3>Loading...</h3>;
   } else {

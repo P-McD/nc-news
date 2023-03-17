@@ -27,3 +27,12 @@ export const signInHandler = (username) => {
     return res.data
   })
 }
+
+export const postCommentHandler = ({article_id, user, inputComment}) => {
+  return api.post(`/articles/${article_id}/comments`, {username : user.username, body: inputComment}).then((res) => {
+    console.log(res)
+    return res.data[0]
+  }).catch((err) => {
+    console.log(err, "<err")
+  })
+}
