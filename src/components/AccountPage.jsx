@@ -1,4 +1,4 @@
-import React, { useEffect, useContext, useState } from "react";
+import React, { useEffect, useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import { UserContext } from "../contexts/UserContext";
 
@@ -10,7 +10,7 @@ export default function AccountPage() {
     if (!user.username) {
       navigate("/signin");
     }
-  }, [user]);
+  }, [user, navigate]);
 
   const signOut = () => {
     setUser({})

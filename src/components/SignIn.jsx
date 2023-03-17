@@ -15,7 +15,7 @@ export default function SignIn() {
     if (user.username) {
       navigate("/account");
     }
-  }, [user]);
+  }, [user, navigate]);
 
   const usernameHandler = (event) => {
     setUsernameErr(false)

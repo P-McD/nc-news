@@ -12,48 +12,60 @@ function Comments() {
   const [notSignedIn, setNotSignedIn] = useState(false);
   const [commentError, setCommentError] = useState(false);
   const [inputComment, setInputComment] = useState("");
+  const [buttonDisabled, setButtonDisabled] = useState(false)
+  
   useEffect(() => {
     commentsHandler(article_id).then((data) => {
       setComments(data);
     });
-  }, [setComments]);
+  }, [article_id]);
   const typeComment = (event) => {
     setCommentError(false);
-    setInputComment(event.target.value)
+    setInputComment(event.target.value);
     console.log(inputComment);
   };
+  // const handleTimeout = (event) => {
+  //   setButtonDisabled(true)
+  //   setTimeout(() => {
+  //     setButtonDisabled(false)
+  //   }, 5000)
+  // }
   const submitComment = (event) => {
-    event.preventDefault();
     if (!user.username) {
       setNotSignedIn(true);
     } else if (inputComment.length < 2) {
       setCommentError(true);
     } else {
-      postCommentHandler({ article_id, user, inputComment}).then((returnedComment) => {
-        return setComments((currentComments) => {
-          return [returnedComment, ...currentComments]
-        })
-      })
+      setButtonDisabled(true)
+      postCommentHandler({ article_id, user, inputComment }).then(
+        (returnedComment) => {
+          setButtonDisabled(false)
+          setInputComment("")
+          setComments((currentComments) => {
+            return [returnedComment, ...currentComments];
+          });
+        }
+      );
     }
   };
-  // if (comments.length === 0) {
-  //   return (
-  //     <div className="no-comments">
-  //       <h4>Comments</h4>
-  //       <p>Be the first to comment!</p>
-  //     </div>
-  //   );
-  // } else {
+
   return (
     <div className="comments">
       <h4>Comments</h4>
       <form id="post-comment">
         <label htmlFor="comment-box">Join the Conversation</label>
         <br />
-        <textarea id="comment-box" onChange={typeComment}></textarea>
+        <textarea id="comment-box" onChange={typeComment} value={inputComment}></textarea>
         <br />
-        <button id="submit-comment" onClick={submitComment}>
-          Post Comment
+        <button
+          id="submit-comment"
+          onClick={(event) => {
+            event.preventDefault();
+            // handleTimeout();
+            submitComment();
+          }} disabled={buttonDisabled}
+        >
+          {buttonDisabled ? "Please Wait..." : "Post a Comment"}
         </button>
         <span id="comment-signin" className="error-box">
           {notSignedIn ? (
@@ -69,15 +81,22 @@ function Comments() {
           ) : null}
         </span>
       </form>
-      <ul>
-        {comments.map((comment) => {
-          return (
-            <li key={comment.comment_id} className="comment-card">
-              <CommentCard comment={comment} />
-            </li>
-          );
-        })}
-      </ul>
+      {comments.length === 0 ? (
+        <div className="no-comments">
+          <h4>Comments</h4>
+          <p>Be the first to comment!</p>
+        </div>
+      ) : (
+        <ul>
+          {comments.map((comment) => {
+            return (
+              <li key={comment.comment_id} className="comment-card">
+                <CommentCard comment={comment} />
+              </li>
+            );
+          })}
+        </ul>
+      )}
     </div>
   );
 }
