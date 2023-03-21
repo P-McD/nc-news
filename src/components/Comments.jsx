@@ -13,10 +13,12 @@ function Comments() {
   const [commentError, setCommentError] = useState(false);
   const [inputComment, setInputComment] = useState("");
   const [buttonDisabled, setButtonDisabled] = useState(false)
-  
+  const [loading, setLoading] = useState(true);
+
   useEffect(() => {
     commentsHandler(article_id).then((data) => {
       setComments(data);
+      setLoading(false)
     });
   }, [article_id]);
   const typeComment = (event) => {
@@ -24,12 +26,7 @@ function Comments() {
     setInputComment(event.target.value);
     console.log(inputComment);
   };
-  // const handleTimeout = (event) => {
-  //   setButtonDisabled(true)
-  //   setTimeout(() => {
-  //     setButtonDisabled(false)
-  //   }, 5000)
-  // }
+
   const submitComment = (event) => {
     if (!user.username) {
       setNotSignedIn(true);
@@ -61,7 +58,6 @@ function Comments() {
           id="submit-comment"
           onClick={(event) => {
             event.preventDefault();
-            // handleTimeout();
             submitComment();
           }} disabled={buttonDisabled}
         >

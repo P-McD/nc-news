@@ -22,6 +22,7 @@ export const commentsHandler = (articleId) => {
   })
 }
 
+
 export const signInHandler = (username) => {
   return api.get(`/users`).then((res) => {
     return res.data
@@ -34,5 +35,11 @@ export const postCommentHandler = ({article_id, user, inputComment}) => {
     return res.data[0]
   }).catch((err) => {
     console.log(err, "<err")
+    
+export const upVoteHandler = ({articleId, voteValue}) => {
+  return api.patch(`/articles/${articleId}`, {inc_votes : voteValue})
+  .then(({data}) => {
+    console.log(data.votes , "<<votes increased api")
+    return data.votes
   })
 }

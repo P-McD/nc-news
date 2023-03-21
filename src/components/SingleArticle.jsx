@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { singleArticleHandler } from "../api";
 import Comments from "./Comments";
+import Votes from "./Votes";
 
 export default function SingleArticle() {
   const { article_id } = useParams();
@@ -28,7 +29,7 @@ export default function SingleArticle() {
           <p className="topic">#{singleArticle.topic}</p>
         </section>
         <p className="body">{singleArticle.body}</p>
-        <button id="vote-button">Votes: {singleArticle.votes}</button>
+        <Votes singleArticle={singleArticle} />
         <Comments />
       </div>
     );
