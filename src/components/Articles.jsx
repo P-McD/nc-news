@@ -22,10 +22,10 @@ export default function Articles() {
   }, [selectedTopic, setTopic]);
 
   if (loading === true) {
-    return <p>Loading</p>;
+    return <p>Loading...</p>;
   } else {
     return (
-      <div>
+      <div className="articles">
         <h2>Articles</h2>
         <form className="topic-selector">
           <label htmlFor="topic-dropdown">Search by Topic</label>
@@ -43,7 +43,7 @@ export default function Articles() {
           </select>
         </form>
 
-        <ul className="listedArticles">
+        <ul className="listed-articles">
           {topic.map((article) => {
             return (
               <li key={article.article_id} className="article-card">
