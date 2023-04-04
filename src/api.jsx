@@ -35,7 +35,8 @@ export const postCommentHandler = ({article_id, user, inputComment}) => {
     return res.data[0]
   }).catch((err) => {
     console.log(err, "<err")
-    
+})
+}
 export const upVoteHandler = ({articleId, voteValue}) => {
   return api.patch(`/articles/${articleId}`, {inc_votes : voteValue})
   .then(({data}) => {
