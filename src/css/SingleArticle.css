@@ -1,9 +1,9 @@
 .single-article {
     position: absolute;
     padding-top: 3vh;
-    margin-left: 5vw;
-    padding-left: 10vw;
-    padding-right: 10vw;
+    margin-left: 10vw;
+    padding-left: 5vw;
+    padding-right: 5vw;
     margin-right: 10vw;
     border-color: grey;
     border-width: 1px;
