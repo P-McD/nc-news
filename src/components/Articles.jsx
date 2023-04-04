@@ -3,6 +3,8 @@ import { useContext, useState, useEffect } from "react";
 import { topicSelectHandler } from "../api";
 import { TopicContext } from "../contexts/TopicContext";
 import ArticleCard from "./ArticleCard";
+import Loading from "./Loading";
+import "../css/Articles.css"
 export default function Articles() {
   const { topic, setTopic } = useContext(TopicContext);
   const [loading, setLoading] = useState(true);
@@ -17,13 +19,14 @@ export default function Articles() {
     topicSelectHandler(selectedTopic)
       .then((data) => {
         setTopic(data);
+        setLoading(false);
       })
       .catch((err) => console.log(err));
-    setLoading(false);
+    
   }, [selectedTopic, setTopic]);
 
   if (loading === true) {
-    return <p>Loading...</p>;
+    return <Loading />;
   } else {
     return (
       <div className="articles">
