@@ -8,7 +8,7 @@ export default function CommentCard({comment}) {
       <p>{comment.body}</p>
       <section id="comment-info">
         <p>Posted at {comment.created_at}</p>
-        <button>Votes: {comment.votes}</button>
+        {/* <button>Votes: {comment.votes}</button> */}
       </section>
     </div>
   )
