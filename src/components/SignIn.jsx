@@ -10,7 +10,7 @@ export default function SignIn() {
   const [usernameErr, setUsernameErr] = useState(false);
   const [passwordErr, setPasswordErr] = useState(false);
   const [inputPassword, setInputPassword] = useState("");
-  const [loadSignin, setLoadSignin] = useState(false)
+  const [loadSignin, setLoadSignin] = useState(false);
 
   const navigate = useNavigate();
   useEffect(() => {
@@ -28,20 +28,21 @@ export default function SignIn() {
     setInputPassword(event.target.value);
   };
   const signInButton = (event) => {
-    setLoadSignin(true)
+    setLoadSignin(true);
     event.preventDefault();
     if (inputPassword === "") {
-      setLoadSignin(false)
-      return setPasswordErr(true) 
+      setLoadSignin(false);
+      return setPasswordErr(true);
     }
     signInHandler(inputUsername).then((users) => {
       users.map((user) => {
         if (user.username === inputUsername) {
-          setUser(user);
-          setLoadSignin(false)
+          setLoadSignin(false);
+          return setUser(user);
         } else {
-          setLoadSignin(false)
-        return setUsernameErr(true);}
+          setLoadSignin(false);
+          return setUsernameErr(true);
+        }
       });
     });
   };
@@ -50,7 +51,7 @@ export default function SignIn() {
       <h3>Welcome!</h3>
       <p>Login to your account</p>
       <div className="login-box">
-        <form className="signin-form"id="signin">
+        <form className="signin-form" id="signin">
           <label htmlFor="username">Username: </label>
           <input
             id="username"
@@ -81,11 +82,15 @@ export default function SignIn() {
         <span className="error-box">
           {usernameErr ? (
             <p>
-              Username not found, please check your login details and try again (Hint: try "jessjelly")
+              Username not found, please check your login details and try again
+              (Hint: try "jessjelly")
             </p>
           ) : null}
         </span>
-        <span className="error-box"> {loadSignin ? <p>Signing in, please wait...</p> : null}</span>
+        <span className="error-box">
+          {" "}
+          {loadSignin ? <p>Signing in, please wait...</p> : null}
+        </span>
       </div>
     </div>
   );
