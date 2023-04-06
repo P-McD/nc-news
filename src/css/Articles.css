@@ -7,6 +7,7 @@
     grid-column-gap: 30px;
     grid-row-gap: 30px;
     list-style-type: none;
+    align-items: auto;
   }
   .article-card {
     padding-top: 1vh;

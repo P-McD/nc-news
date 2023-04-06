@@ -10,6 +10,7 @@ export default function SignIn() {
   const [usernameErr, setUsernameErr] = useState(false);
   const [passwordErr, setPasswordErr] = useState(false);
   const [inputPassword, setInputPassword] = useState("");
+  const [loadSignin, setLoadSignin] = useState(false)
 
   const navigate = useNavigate();
   useEffect(() => {
@@ -27,16 +28,20 @@ export default function SignIn() {
     setInputPassword(event.target.value);
   };
   const signInButton = (event) => {
+    setLoadSignin(true)
     event.preventDefault();
-    if (!inputPassword) {
-      return setPasswordErr(true);
+    if (inputPassword === "") {
+      setLoadSignin(false)
+      return setPasswordErr(true) 
     }
     signInHandler(inputUsername).then((users) => {
       users.map((user) => {
         if (user.username === inputUsername) {
-          return setUser(user);
-        }
-        return setUsernameErr(true);
+          setUser(user);
+          setLoadSignin(false)
+        } else {
+          setLoadSignin(false)
+        return setUsernameErr(true);}
       });
     });
   };
@@ -80,6 +85,7 @@ export default function SignIn() {
             </p>
           ) : null}
         </span>
+        <span className="error-box"> {loadSignin ? <p>Signing in, please wait...</p> : null}</span>
       </div>
     </div>
   );

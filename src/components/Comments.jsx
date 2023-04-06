@@ -4,6 +4,7 @@ import { useEffect, useState, useContext } from "react";
 import { commentsHandler, postCommentHandler } from "../api";
 import CommentCard from "./CommentCard";
 import { UserContext } from "../contexts/UserContext";
+import "../css/Comments.css"
 
 function Comments() {
   const { user } = useContext(UserContext);
@@ -48,9 +49,9 @@ function Comments() {
 
   return (
     <div className="comments">
-      <h4>Comments</h4>
+      <h3>Comments</h3>
       <form id="post-comment">
-        <label htmlFor="comment-box">Join the Conversation</label>
+        <label htmlFor="comment-box">Join the Conversation!</label>
         <br />
         <textarea id="comment-box" onChange={typeComment} value={inputComment}></textarea>
         <br />
@@ -77,6 +78,7 @@ function Comments() {
           ) : null}
         </span>
       </form>
+      {/* <div></div> */}
       {comments.length === 0 ? (
         <div className="no-comments">
           <h4>Comments</h4>

@@ -1,4 +1,5 @@
 import React, { useContext } from "react";
+import {Link} from "react-router-dom"
 import "../css/HomePage.css";
 import { UserContext } from "../contexts/UserContext";
 import NewsCarousel from "./NewsCarousel";
@@ -31,15 +32,23 @@ export default function HomePage() {
   return (
     <div className="homepage">
       {user.username ? (
-        <p className="user-greeting">Welcome {user.username}!</p>
+        <div className="user-homepage">
+          <img className="homepage-avatar" src={user.avatar_url} alt={user.username} />
+          <p className="user-greeting">Welcome {user.username}!</p>
+        </div>
       ) : (
-        <p className="user-greeting">Welcome Guest!</p>
+        <>
+          <p className="user-greeting">Welcome Guest!</p>
+        </>
       )}
       <div className="homeEditorWrapper">
-        <h3>Editor's Picks</h3>
+        <h2>Editor's Picks</h2>
         <div className="homeCarouselWrapper">
           <NewsCarousel slides={slides} />
         </div>
+      </div>
+      <div>
+      <p>Want to read more? <Link to="/articles" id="home-read-more">Click here to browse all articles!</Link></p>
       </div>
     </div>
   );

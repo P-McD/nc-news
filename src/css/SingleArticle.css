@@ -32,18 +32,19 @@
 .single-image {
     max-width: 80vw;
 }
+.article-info {
+    display: flex;
+    justify-content: space-between;
+}
 
-.comments > ul {
-    display: grid;
-    align-items: center;
-    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-    grid-gap: 10px;
-    list-style-type: none;
-  }
-  
-  .comment-card {
-    text-align: left;
-  }
+.creator-data {
+    font-weight: bold;
+}
+.date {
+    font-style: italic;
+}
+
+
 
   
   
