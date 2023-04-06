@@ -1,8 +1,9 @@
 import React from 'react'
+import "../css/CommentCard.css"
 
 export default function CommentCard({comment}) {
   return (
-    <div> 
+    <div className="comment-card"> 
       <p className="comment-author"
       >{comment.author}</p>
       <p>{comment.body}</p>
