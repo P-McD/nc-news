@@ -21,7 +21,7 @@ export default function ArticleCard({ article }) {
       <p className="article-card-author-info">
         {article.author} posted in #{article.topic} on {previewDate}
       </p>
-      <Link to={urlLink}>Read More</Link>
+      <Link className="readmore" to={urlLink}>Read More</Link>
     </div>
   );
 }
