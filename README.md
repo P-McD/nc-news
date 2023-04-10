@@ -1,5 +1,5 @@
 ## About this project
-Welcome to my NC News Repo!
+Welcome to my Frontend NC News Repo!
 
 This is my frontend project that I completed during frontend project week in my time at Northcoders, which is a model news website containing both articles as well as user contributions (votes and comments). 
 
@@ -22,13 +22,13 @@ Using the URL above, you can explore the features of the website.
 
 - Users can navigate to the `Homepage` at any time by clicking the 'NC News' logo in the top left of the screen.
 
-## Articles
+### Articles
 
 - Displays articles using a responsive layout, including title, creator data and a snippet of the article body. Users can click on an article card to navigate to a `Single Article`
 
 - Users can filter by topic using the dropdown menu on the right of the screen
 
-## Single Article
+### Single Article
 
 - Displays the article body, title, photo and creator data, as well as a comments section. 
 
@@ -36,7 +36,7 @@ Using the URL above, you can explore the features of the website.
 
 - Users can comment only if they are signed in. 
 
-## Sign in 
+### Sign in 
 
 - Error handling to ensure that a valid username has been entered - this can be any username recorded in the database, but `jessjelly` is recommended by the username hint if no valid username has been entered when trying to sign in. 
 
