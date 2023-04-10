@@ -1,70 +1,69 @@
-# Getting Started with Create React App
+## About this project
+Welcome to my NC News Repo!
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This is my frontend project that I completed during frontend project week in my time at Northcoders, which is a model news website containing both articles as well as user contributions (votes and comments). 
 
-## Available Scripts
+You can find the hosted version here:
 
-In the project directory, you can run:
+https://main--charming-marigold-41382a.netlify.app/
 
-### `npm start`
+You can also find the backend repo here: 
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+https://github.com/P-McD/news-project 
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Navigating NC News in the browser 
+Using the URL above, you can explore the features of the website.
 
-### `npm test`
+### Homepage
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- The link above directs to the `Homepage`, which contains a carousel of 'editor's picks' news articles. The user can click on the articles in the carousel, or can navigate to all articles using the link at the bottom of the page or clicking on the `Articles` tab on the nav bar.
 
-### `npm run build`
+- If a user is logged in, a 'Welcome < user > !' greeting will be displayed alongside the user's profile picture. This defaults to 'Welcome Guest!' if no user is logged in. 
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- Users can navigate to the `Homepage` at any time by clicking the 'NC News' logo in the top left of the screen.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Articles
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+- Displays articles using a responsive layout, including title, creator data and a snippet of the article body. Users can click on an article card to navigate to a `Single Article`
 
-### `npm run eject`
+- Users can filter by topic using the dropdown menu on the right of the screen
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+## Single Article
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+- Displays the article body, title, photo and creator data, as well as a comments section. 
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+- Users can click to give a vote and then click again to remove the vote. This functionality works even if not signed in. 
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+- Users can comment only if they are signed in. 
 
-## Learn More
+## Sign in 
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+- Error handling to ensure that a valid username has been entered - this can be any username recorded in the database, but `jessjelly` is recommended by the username hint if no valid username has been entered when trying to sign in. 
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+- Error handling to ensure that a password (any) has been entered. 
 
-### Code Splitting
+- Automatically redirects to `Account Page` and changes the display in the nav bar to match once logged in, showing the user's name and profile picture. 
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
 
-### Analyzing the Bundle Size
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+## Running this project locally
 
-### Making a Progressive Web App
+If you would like to run this project locally, follow the guide below:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+*Note: The minimum version of Node.js required to run this is `V19.1.0`*
 
-### Advanced Configuration
+- Firstly, fork and clone this repo onto your local device
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+- Navigate to the folder and install the npm packages with the following command:
 
-### Deployment
+    `npm install`
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+- Finally, run the project using the following command:
 
-### `npm run build` fails to minify
+    `npm start`
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## Further updates
+
+This project will be updated as I improve my skills. I hope to implement some new features, including refactoring the topic filter functionality and creating a more visually exciting layout for the homepage using CSS grids. 
+
+Enjoy exploring this project! 
